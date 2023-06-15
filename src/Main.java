@@ -3,14 +3,28 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) {
-        try {
-            var reader = new FileReader("file.txt");
-            var value = reader.read();
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+        public static void read() {
+
+            FileReader file = null;
+            try {
+                file = new FileReader("text.txt");
+            }
+            catch (FileNotFoundException e) {
+                System.out.println("The file not found");
+            }
+            finally {
+                try {
+                    file.close();
+                } catch (IOException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+
         }
-        catch (IOException e){
-            System.out.println("Could not read input");        }
-    }
+
+        public static void main(String[] args) {
+
+            read();
+
+        }
 }
