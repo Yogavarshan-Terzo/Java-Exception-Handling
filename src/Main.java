@@ -3,28 +3,24 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class Main {
-        public static void read() {
+    public static void main (String[] args)
+    {
+        // Initializing String variable with null value
+        String ptr = null;
 
-            FileReader file = null;
-            try {
-                file = new FileReader("text.txt");
-            }
-            catch (FileNotFoundException e) {
-                System.out.println("The file not found");
-            }
-            finally {
-                try {
-                    file.close();
-                } catch (IOException e) {
-                    System.out.println(e.getMessage());
-                }
-            }
-
+        // Checking if ptr.equals null or works fine.
+        try
+        {
+            // This line of code throws NullPointerException
+            // because ptr is null
+            if (ptr.equals("gfg"))
+                System.out.print("Same");
+            else
+                System.out.print("Not Same");
         }
-
-        public static void main(String[] args) {
-
-            read();
-
+        catch(NullPointerException e)
+        {
+            System.out.print(e.getMessage());
         }
+    }
 }
